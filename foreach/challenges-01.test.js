@@ -148,7 +148,7 @@ Iterate over the array using forEach to determine the output based on several ru
   - Otherwise, add the number to the output array.
 
 Return the resulting output array.
------------------------------------------------------------------------------------------------- */
+--------------------------------------------------------------------------------------------- */
 
 const fizzbuzz = (arr) => {
   let arr2= [];
