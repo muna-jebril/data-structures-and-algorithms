@@ -96,23 +96,14 @@ define an anonymous function as the argument to forEach.
 
 This anonymous function should accept up to three arguments: the element, the index, and the array.
 ------------------------------------------------------------------------------------------------ */
-let theNewWay;
 const removeWithAnon = (arr) => {
-  console.log("aaaaa");
-arr.forEach((theNewWay)=>{
-  console.log("zzzzz");
-   theNewWay = (element , index ,arr) => {
-    if (element %3 ==2){
+  arr.forEach((element,index,arr) => {
+    if(element%3===2){
       arr.pop();
-console.log("fff");
-      return arr ;
     }
-    
-  }
-})
-// return arr ;
+  });
+  return arr;
 };
-console.log(removeWithAnon([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,7 +124,14 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let list =[];
+  availableItems.forEach((element)=>{
+    if(element.available){
+      list.push(element.name);
+    }
+  });
+
+  return list;
 };
 
 /* ------------------------------------------------------------------------------------------------
