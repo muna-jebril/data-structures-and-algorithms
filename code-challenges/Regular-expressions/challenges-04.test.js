@@ -33,7 +33,13 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
+  let reg = /^[A-J].*/;
+  let newArr =[];
+  for(let i =0;i<arr.length ;i++){
+    if(arr[i].match(reg)) newArr.push(arr[i]);
+  }
 
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,9 +64,10 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  const regex = /\b\w*\s/;
 
-  return str.match(regex);
+  const regex = /\b\w*\s/g;
+  return str.match(regex)||[];
+
 };
 
 /* ------------------------------------------------------------------------------------------------
