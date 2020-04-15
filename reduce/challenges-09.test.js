@@ -158,9 +158,18 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
-  
+  let avg = arr.reduce(acc =>{
+    acc =acc+1;
+    return acc;
+  },0)
+  let sum =0;
+  for (let i=0 ; i<arr.length ;i++)
+  {
+    sum = sum + arr[i];
+  }
+  return sum/avg ;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -170,7 +179,21 @@ You are welcome to use the provided isPrime function.
 ------------------------------------------------------------------------------------------------ */
 
 const isPrime = (value) => {
-  
+  for (let i = 2; i < value; i++) {
+    if (value % i === 0) {
+      return false;
+    }
+  }
+  return value > 1;
+};
+
+const countPrimeNumbers = (arr) => {
+  return arr.reduce((count,ele,index)=>{
+    if (isPrime(ele)){
+      count=count+1
+    }
+    return count;
+  },0)
 };
 
 /* ------------------------------------------------------------------------------------------------
