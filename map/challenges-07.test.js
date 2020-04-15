@@ -32,21 +32,34 @@ const forLoopTwoToThe = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1, but uses forEach instead of a for loop.
+Write a function named forEachTwoToThe 
+that produces the same output as your forLoopTwoToThe 
+function from challenge 1, but uses forEach instead of a for loop.
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  let numArr = [];
+  arr.forEach((key)=> {
+    numArr.push(Math.pow(2,key));
+
+  });
+  return numArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
+Write a function named mapTwoToThe 
+that produces the same output as your
+ forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  let map = arr.map(key =>{
+    return Math.pow(2,key)
+  }
+  );
+  return map;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,21 +73,30 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  return arr.map(e =>{
+    return e.charCodeAt();
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function that, given an array of numbers as input, uses map to return a new array where each element is either the string "even" or the string "odd", based on each value.
+Write a function that, given an array of numbers as input,
+ uses map to return a new array where each element is either the 
+ string "even" or the string "odd", based on each value.
 
-If any element in the array is not a number, the resulting array should have the string "N/A" in its place.
+If any element in the array is not a number, the resulting
+ array should have the string "N/A" in its place.
 
 For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  return arr.map((data) =>{
+    if(typeof(data)!== 'number') return 'N/A';
+    if(data%2 ===0) return 'even';
+    return 'odd';
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +142,9 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  return arr.map(element => {
+    return element.ability.name;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,7 +191,11 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map(element => {
+    return {name: element.stat.name,
+      total: element.effort + element.baseStat,
+    };
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
