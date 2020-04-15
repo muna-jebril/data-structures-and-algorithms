@@ -1,5 +1,5 @@
 'use strict';
-
+// a/
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, highest to smallest.
@@ -40,17 +40,8 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
   arr.sort((a,b) => {
-    if(a.toLowerCase() < b.toLowercase()){
-      return -1;
-    }
-    else if (a.toLowerCase() === b.toLowerCase()){
-      return 0;
-    }
-    else if (a.toLowerCase() > b.toLowerCase()){
-      return 1;
-    }
+    return a.toLowerCase()>b.toLowerCase();
   });
   return arr;
 };
@@ -90,19 +81,9 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
-  arr.sort((a,b) => {
-    if(a.length < b.length){
-      return -1;
-    }
-    else if (a.length === b.length){
-      return 0;
-    }
-    else if (a.length > b.length){
-      return 1;
-    }
+  return arr.sort((a,b) => {
+    return a.toString().length>b.toString().length;
   });
-  return arr;
 
 };
 /*-----------------------------------------------------------------------------------------------
@@ -147,21 +128,17 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
-//   arr.sort((a,b) => {
-//     if(a.lastName < b.lastName){
-//       return -1;
-//     }
-//     else if (a.lastName === b.lastName && a.lastName == b.lastName){
-//       return 0;
-//     }
-//     else if (a.lastName > b.lastName){
-//       return 1;
-//     }
-//   });
-//   return arr;
+  arr.sort((first,last) => {
+    if(first.lastName > last.lastName) return 1;
+    if(first.lastName===last.lastName){
+      if(first.firstName > last.firstName) return 1;
+      if(first.firstName===last.firstName){
+        return first.age>last.age;
+      }
+    }
 
-// };
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
