@@ -9,7 +9,10 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  let result = arr.map(val =>{
+    return val.substring(0,1);
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,8 +24,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
-};
+  let result =[];
+  arr.forEach(val =>{
+    if(val.includes(':)')){
+      result.push(val);
+    }
+  })
+  return result;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -33,7 +41,14 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let result = arr.map(val=>{
+    val=val.replace('-','')
+    val=val.replace(' ','')
+    val=val.replace(')','')
+    val=val.replace('(','')
+    return val;
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +60,14 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let newString = '';
+  let len =str.length;
+  for (let i =0 ; i<len; i++){
+    if(i%2!==0){
+      newString = newString + str.charAt(i);
+    }
+  }
+  return newString;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +77,13 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let result = true;
+  arr.forEach(val =>{
+    if(!(val.includes(':)'))){
+      result = false;
+    }
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +93,13 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let result = [];
+  arr.forEach(val =>{
+    if(val.includes(target)){
+      result.push(val);
+    }
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +109,13 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  let result = true;
+  arr.forEach(val =>{
+    if(!(val.includes(target))){
+      result = false;
+    }
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,15 +123,25 @@ CHALLENGE 8
 
 We've been testing a new course enrollment system, and we think we have the bugs worked out, but in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
 
-Write a function named unenrollBrook that takes in a two-dimensional array, where each array represents one course's roster and is an array of strings of the names of the people in that course.
+Write a function named unenrollBrook that takes in 
+a two-dimensional array, where each array represents one 
 
-Return a two-dimensional array with the same roster, but where anyone whose name includes Brook is removed from every course.
+course's roster and is an array of strings of the names of the people in that course.
 
-For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
+Return a two-dimensional array with the same roster,
+ but where anyone whose name includes Brook is removed from every course.
+
+For example, [['Brook Testing', 'Actual Person'],
+ ['Human Person', 'Brook again', 'still Brook']]
+  returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  return arr.map(e => {
+    return e.filter(val => {
+      return !val.includes('Brook');
+    })
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
