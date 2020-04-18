@@ -87,8 +87,9 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   recipe['ingredients'].forEach(element => {
-    let a = element.slice(4,element.length).indexOf(' ');
-    result.push(element.slice(a+5,element.length));
+    let z = element.slice(4,element.length).indexOf(' ');
+    result.push(element.slice(z+5,element.length));
+
   });
   return result;
 };
@@ -103,15 +104,15 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
   recipe['ingredients'].forEach(element => {
-    let z = element.split(' ');
-    let empty ='';
-    for(let i =2;i<z.length;i++){
-      if(i===2) empty += z[i] ;
-      else empty += ' ' +z[i] ;
+    let a = element.split(' ');
+    let q ='';
+    for(let i =2;i<a.length;i++){
+      if(i===2) q += a[i] ;
+      else q += ' ' +a[i] ;
     }
-    result.push(empty);
+    result.push(q);
+
   });
   return result;
 };
@@ -129,6 +130,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   recipe.steps.forEach(element => {
+
     let x = element.split(' ')[0];
     result.push(x);
   });
@@ -178,8 +180,8 @@ const removeLastCharacters = (str, numberOfCharacters) => {
   if(numberOfCharacters<0) return str;
   if(numberOfCharacters>=str.length) return '';
   let newStr = str.slice(0,str.length-numberOfCharacters);
-  return newStr;
-};
+  return newStr;};
+
 
 
 /* ------------------------------------------------------------------------------------------------
