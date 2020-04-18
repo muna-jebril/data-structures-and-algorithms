@@ -3,9 +3,15 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
-You friend Pat has a chain of stores around the greater Seattle area. He specializes in selling salmon cookies. Pat has data for the hourly sales of cookies per hour for each store. He wants to create an array of the total number of cookies sold per hour for all of his stores combined.
+You friend Pat has a chain of stores around the greater Seattle area.
+ He specializes in selling salmon cookies. Pat has data for the hourly sales of 
+ cookies per hour for each store. He wants to create an array of the total number
+  of cookies sold per hour for all of his stores combined.
 
-Write a function named grandTotal that adds up the cookies sales for each hour of operation for all of the stores combined. For example, the first element in the hourlySales array should be the sum of the cookies sold in the 9:00 a.m. hour at all five stores combined.
+Write a function named grandTotal that adds up the cookies sales for each hour
+ of operation for all of the stores combined. For example, the first element in 
+ the hourlySales array should be the sum of the cookies sold in the 9:00 a.m.
+  hour at all five stores combined.
 
 For this example, the total at 9:00 a.m. is 17 + 26 + 7 + 5 + 33, or 88 total cookies.
 
@@ -23,9 +29,17 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
-};
+  let sumArray=[];
+  let i =0;
+  for( i=0 ;i<hoursOpen.length;i++){
+      let sum = 0;
+    for(let j=0 ; j<stores.length;j++){
+      sum += stores[j][i]
+    }
+    sumArray.push(sum);
+  }
+  return sumArray;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -38,13 +52,20 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let result=[];
+  data.forEach((val,i) => {
+    //88
+    let obj = { sales: `${val} cookies`, time: `${hours[i]}`}
+    result.push(obj);
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named howManyTreats that will return the quantity of treats you need to pick up from the pet store today from this array.
+Write a function named howManyTreats that will return the quantity of 
+treats you need to pick up from the pet store today from this array.
 ------------------------------------------------------------------------------------------------ */
 
 const errands = [
@@ -60,9 +81,18 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
-};
-
+  let quant;
+  arr.forEach(element => {
+      if (element.store === 'Pet store'){
+        element.items.forEach(val => {
+            if(val.name === 'Treats'){
+                quant = val.quantity;
+            }
+        });
+      }
+    });
+    return quant;
+  };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -83,6 +113,8 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  if(board[row][col] === '#') return 'hit';
+  return 'miss';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,7 +126,11 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  return numbers.reduce((acc,e) =>{
+    return acc*e.reduce((prod,val) => {
+      return prod*val;
+    },1);
+  },1);
 };
 
 /* ------------------------------------------------------------------------------------------------
