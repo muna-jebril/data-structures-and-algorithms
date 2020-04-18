@@ -89,6 +89,7 @@ const listFoods = (recipe) => {
   recipe['ingredients'].forEach(element => {
     let z = element.slice(4,element.length).indexOf(' ');
     result.push(element.slice(z+5,element.length));
+
   });
   return result;
 };
@@ -111,6 +112,7 @@ const splitFoods = (recipe) => {
       else q += ' ' +a[i] ;
     }
     result.push(q);
+
   });
   return result;
 };
@@ -128,8 +130,9 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   recipe.steps.forEach(element => {
-    let z = element.split(' ')[0];
-    result.push(z);
+
+    let x = element.split(' ')[0];
+    result.push(x);
   });
   return result;
 };
@@ -155,6 +158,7 @@ const removeEvenValues = (arr) => {
     }
   }
   console.log(arr);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,6 +181,7 @@ const removeLastCharacters = (str, numberOfCharacters) => {
   if(numberOfCharacters>=str.length) return '';
   let newStr = str.slice(0,str.length-numberOfCharacters);
   return newStr;};
+
 
 
 /* ------------------------------------------------------------------------------------------------
